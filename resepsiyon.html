@@ -8,16 +8,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --primary:#C8102E;   --primary-dark:#9e0c24; --primary-light:#e8192f;
+  /* Ana renk — sadece header, buton, vurgu noktaları */
+  --primary:#C8102E; --primary-dark:#9e0c24; --primary-light:#e8192f;
   --primary-bg:#fff0f2; --primary-border:#f5c6cb;
+
+  /* Sayfa zeminleri */
   --cream:#f7f8fa; --parchment:#eef0f3; --border:#dde1e7; --warm:#b0b8c4;
-  --gold:#C8102E; --gold2:#e8192f; --dark:#1a1d23; --charcoal:#2c3040;
+
+  /* Altın/koyu — kırmızıdan bağımsız, nötr koyu */
+  --gold:#5a4a2e; --gold2:#7a6840; --dark:#1a1d23; --charcoal:#2c3040;
   --text:#2c3040; --muted:#6b7280; --white:#fff;
+
+  /* İşlevsel renkler — kırmızıdan ayrı */
   --green:#16a34a; --green-bg:#f0fdf4;
-  --red:#C8102E; --red-bg:#fff0f2;
+  --red:#dc2626; --red-bg:#fef2f2;
   --blue:#1d4ed8; --blue-bg:#eff6ff;
   --orange:#ea580c; --orange-bg:#fff7ed;
   --purple:#7c3aed; --purple-bg:#f5f3ff;
+
   --shadow:0 2px 12px rgba(0,0,0,.07);
   --shadow-lg:0 8px 32px rgba(0,0,0,.13);
 }
@@ -51,22 +59,19 @@ nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:58
 .nav-tab.active{color:var(--primary);border-bottom-color:var(--primary);}
 
 /* ── TOAST ── */
-#toast{position:fixed;top:80px;right:20px;z-index:9999;background:var(--primary);color:#fff;padding:12px 20px;font-size:13px;border-left:3px solid var(--primary);box-shadow:var(--shadow-lg);opacity:0;transform:translateX(20px);transition:all .3s;pointer-events:none;max-width:320px;border-radius:0;}
+#toast{position:fixed;top:80px;right:20px;z-index:9999;background:var(--dark);color:#fff;padding:12px 20px;font-size:13px;border-left:3px solid var(--primary);box-shadow:var(--shadow-lg);opacity:0;transform:translateX(20px);transition:all .3s;pointer-events:none;max-width:320px;border-radius:0;}
 #toast.show{opacity:1;transform:translateX(0);}
 #toast.success{border-left-color:var(--green);}
 #toast.error{border-left-color:var(--red);}
-  --orange:#ea580c; --orange-bg:#fff7ed;
-  --purple:#7c3aed; --purple-bg:#f5f3ff;
-}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);}
 .modal-overlay.active{display:flex;}
-.modal{background:var(--white);border:1px solid var(--border);padding:32px 36px;width:100%;max-width:560px;box-shadow:var(--shadow-lg);animation:modalIn .25s ease;position:relative;max-height:90vh;overflow-y:auto;}
-.modal::before{content:'';position:absolute;top:8px;left:8px;right:8px;bottom:8px;top:0;height:3px;background:var(--primary);pointer-events:none;}
+.modal{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--primary);padding:32px 36px;width:100%;max-width:560px;box-shadow:var(--shadow-lg);animation:modalIn .25s ease;position:relative;max-height:90vh;overflow-y:auto;}
+.modal::before{display:none;}
 @keyframes modalIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-.modal-title{font-family:'Jost',sans-serif;font-size:15px;font-weight:700;color:var(--dark);margin-bottom:24px;padding-bottom:14px;border-bottom:2px solid var(--primary);letter-spacing:.5px;text-transform:uppercase;}
+.modal-title{font-family:'Jost',sans-serif;font-size:15px;font-weight:700;color:var(--dark);margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--border);letter-spacing:.5px;text-transform:uppercase;}
 .form-group{margin-bottom:16px;}
 .form-group label{display:block;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
 .form-group input:not([type=checkbox]):not([type=radio]),
@@ -114,7 +119,7 @@ input[type=radio]{-webkit-appearance:radio;appearance:radio;border-radius:50%;}
 .content{max-width:1400px;margin:0 auto;padding:24px;position:relative;z-index:1;}
 .page{display:none;}
 .page.active{display:block;}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid var(--primary);flex-wrap:wrap;gap:10px;}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px;}
 .section-head h2{font-family:'Jost',sans-serif;font-size:20px;font-weight:700;color:var(--dark);letter-spacing:.5px;text-transform:uppercase;}
 .section-head h2 em{color:var(--primary);font-style:normal;}
 
@@ -123,7 +128,7 @@ input[type=radio]{-webkit-appearance:radio;appearance:radio;border-radius:50%;}
 .badge-green{background:var(--green-bg);color:var(--green);}
 .badge-red{background:var(--red-bg);color:var(--red);}
 .badge-blue{background:var(--blue-bg);color:var(--blue);}
-.badge-gold{background:#fff0f2;color:var(--primary);}
+.badge-gold{background:#fdf6e3;color:var(--gold2);}
 .badge-gray{background:#f3f4f6;color:var(--muted);}
 .badge-orange{background:var(--orange-bg);color:var(--orange);}
 .badge-purple{background:var(--purple-bg);color:var(--purple);}
@@ -267,7 +272,7 @@ tbody td{padding:12px 16px;font-size:13px;}
 .popup-not { font-size: 11px; color: rgba(240,235,224,.5); margin-top: 8px; font-style: italic; border-top: 1px solid rgba(255,255,255,.08); padding-top: 6px; }
 
 /* ── HATIRLATMA BANNER ── */
-#hatirlatmaBanner{display:none;background:var(--primary);border-bottom:2px solid var(--gold2);padding:0;}
+#hatirlatmaBanner{display:none;background:#1a1d23;border-bottom:3px solid var(--primary);padding:0;}
 .hatr-wrap{max-width:1400px;margin:0 auto;padding:10px 24px;}
 .hatr-baslik{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
 .hatr-liste{display:flex;flex-direction:column;gap:6px;max-height:280px;overflow-y:auto;}
