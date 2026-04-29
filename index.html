@@ -12,7 +12,7 @@
 html,body{height:100%;overflow:hidden;}
 
 body {
-  background:var(--primary,#C8102E);
+  background:#C8102E;
   font-family:'Jost',sans-serif;
   display:flex;align-items:center;justify-content:center;
   min-height:100vh;
@@ -24,8 +24,8 @@ body::before {
   content:'';
   position:fixed;inset:0;
   background:
-    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(255,255,255,.12) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(180,0,20,.8) 0%, transparent 70%);
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(255,255,255,.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(150,0,20,.6) 0%, transparent 70%);
   pointer-events:none;
 }
 
@@ -43,20 +43,18 @@ body::after {
   pointer-events:none;
 }
 
-/* Sol dekoratif çizgi */
 .side-line {
   position:fixed;left:32px;top:0;bottom:0;
   width:1px;
-  background:linear-gradient(to bottom, transparent, rgba(255,255,255,.3), transparent);
+  background:linear-gradient(to bottom, transparent, rgba(255,255,255,.25), transparent);
   display:none;
 }
 @media(min-width:768px){.side-line{display:block;}}
 
-/* Sağ dekoratif çizgi */
 .side-line-right {
   position:fixed;right:32px;top:0;bottom:0;
   width:1px;
-  background:linear-gradient(to bottom, transparent, rgba(255,255,255,.15), transparent);
+  background:linear-gradient(to bottom, transparent, rgba(255,255,255,.12), transparent);
   display:none;
 }
 @media(min-width:768px){.side-line-right{display:block;}}
@@ -81,21 +79,9 @@ body::after {
 
 .logo-emblem {
   display:inline-flex;align-items:center;justify-content:center;
-  width:56px;height:56px;
-  border:1px solid rgba(255,255,255,.4);
-  color:rgba(255,255,255,.8);
-  font-size:22px;
+  width:64px;height:72px;
   margin-bottom:20px;
-  position:relative;
 }
-.logo-emblem::before,
-.logo-emblem::after {
-  content:'';position:absolute;
-  width:6px;height:6px;
-  border:1px solid rgba(255,255,255,.3);
-}
-.logo-emblem::before{top:-3px;left:-3px;}
-.logo-emblem::after{bottom:-3px;right:-3px;}
 
 .hotel-name {
   font-family:'Cormorant Garamond',serif;
@@ -125,9 +111,9 @@ body::after {
 
 .form-input {
   width:100%;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.15);
-  border-bottom-color:rgba(255,255,255,.3);
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);
+  border-bottom-color:rgba(255,255,255,.4);
   padding:14px 0;
   font-family:'Jost',sans-serif;
   font-size:16px;font-weight:300;
@@ -140,20 +126,20 @@ body::after {
   -webkit-appearance:none;
 }
 .form-input:focus {
-  border-color:rgba(255,255,255,.6);
-  background:rgba(255,255,255,.04);
+  border-color:rgba(255,255,255,.7);
+  background:rgba(255,255,255,.08);
   padding-left:12px;
 }
-.form-input::placeholder{color:rgba(240,235,224,.2);}
+.form-input::placeholder{color:rgba(255,255,255,.35);}
 
 .login-btn {
   width:100%;
-  background:transparent;
+  background:rgba(255,255,255,.12);
   border:1px solid rgba(255,255,255,.4);
-  color:rgba(255,255,255,.9);
+  color:#fff;
   padding:16px;
   font-family:'Jost',sans-serif;
-  font-size:11px;font-weight:500;
+  font-size:11px;font-weight:600;
   letter-spacing:3px;text-transform:uppercase;
   cursor:pointer;
   transition:all .3s;
@@ -163,7 +149,7 @@ body::after {
 .login-btn::before {
   content:'';
   position:absolute;inset:0;
-  background:rgba(255,255,255,.08);
+  background:rgba(255,255,255,.1);
   transform:scaleX(0);transform-origin:left;
   transition:transform .3s ease;
 }
@@ -171,6 +157,15 @@ body::after {
 .login-btn:hover{border-color:rgba(255,255,255,.7);}
 .login-btn:active{transform:scale(.98);}
 .login-btn:disabled{opacity:.4;cursor:not-allowed;}
+
+.loading-dots span {
+  width:4px;height:4px;border-radius:50%;
+  background:rgba(255,255,255,.5);
+  animation:dot .8s infinite alternate;
+}
+
+.corner-tl{top:24px;left:24px;border-top:1px solid rgba(255,255,255,.2);border-left:1px solid rgba(255,255,255,.2);}
+.corner-br{bottom:24px;right:24px;border-bottom:1px solid rgba(255,255,255,.2);border-right:1px solid rgba(255,255,255,.2);}
 
 .error-msg {
   text-align:center;
@@ -190,7 +185,7 @@ body::after {
 }
 .loading-dots span {
   width:4px;height:4px;border-radius:50%;
-  background:rgba(255,255,255,.5);
+  background:rgba(196,165,90,.5);
   animation:dot .8s infinite alternate;
 }
 .loading-dots span:nth-child(2){animation-delay:.2s;}
@@ -213,8 +208,8 @@ body::after {
   width:40px;height:40px;
   display:none;
 }
-.corner-tl{top:24px;left:24px;border-top:1px solid rgba(255,255,255,.2);border-left:1px solid rgba(255,255,255,.2);}
-.corner-br{bottom:24px;right:24px;border-bottom:1px solid rgba(255,255,255,.2);border-right:1px solid rgba(255,255,255,.2);}
+.corner-tl{top:24px;left:24px;border-top:1px solid rgba(196,165,90,.2);border-left:1px solid rgba(196,165,90,.2);}
+.corner-br{bottom:24px;right:24px;border-bottom:1px solid rgba(196,165,90,.2);border-right:1px solid rgba(196,165,90,.2);}
 @media(min-width:768px){.corner-tl,.corner-br{display:block;}}
 </style>
 </head>
@@ -228,10 +223,10 @@ body::after {
 <div class="login-wrap">
   <div class="logo-section">
     <div class="logo-emblem">
-      <svg viewBox="0 0 34 38" fill="none" width="28" height="32">
-        <path d="M17 1L2 7V20C2 28 8.5 34.5 17 37C25.5 34.5 32 28 32 20V7L17 1Z" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.8)" stroke-width="1.5"/>
-        <path d="M17 4L5 9V20C5 26.5 10 32 17 34.5C24 32 29 26.5 29 20V9L17 4Z" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1"/>
-        <text x="17" y="21" text-anchor="middle" fill="white" font-size="8" font-family="Georgia,serif" font-style="italic">SH</text>
+      <svg viewBox="0 0 40 46" fill="none" width="64" height="72">
+        <path d="M20 2L3 9V24C3 33 10 40 20 44C30 40 37 33 37 24V9L20 2Z" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.8)" stroke-width="1.5"/>
+        <path d="M20 6L7 12V24C7 31 12.5 37 20 41C27.5 37 33 31 33 24V12L20 6Z" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+        <text x="20" y="27" text-anchor="middle" fill="white" font-size="10" font-family="Georgia,serif" font-style="italic">SH</text>
       </svg>
     </div>
     <span class="hotel-name">Swiss House</span>
